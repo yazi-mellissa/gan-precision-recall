@@ -1,0 +1,2 @@
+# E8: R1 penalty (gamma 10) on D + two learning rates (G 2e-4, D 1e-4), 150 epochs. Seeds 1 and 2 are in e9_e8seeds_prdiv_ft.txt
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 150 --seed 0 --out_dir runs/e8_r1_ttur_150ep_seed0

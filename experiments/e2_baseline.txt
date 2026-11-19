@@ -1,0 +1,4 @@
+# E2: Adam beta1 0.5, 3 seeds; D retrained 5 epochs on the frozen G afterwards (D_refresh.pth, for OBRS)
+python train.py --loss bce --beta1 0.5 --epochs 100 --seed 0 --out_dir runs/e2_baseline_seed0 --d_refresh_epochs 5
+python train.py --loss bce --beta1 0.5 --epochs 100 --seed 1 --out_dir runs/e2_baseline_seed1 --d_refresh_epochs 5
+python train.py --loss bce --beta1 0.5 --epochs 100 --seed 2 --out_dir runs/e2_baseline_seed2 --d_refresh_epochs 5

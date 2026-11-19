@@ -1,0 +1,13 @@
+# E11: round 2, optimisation levers on top of E8 + EMA (seed 0). Each saves G.pth and ema/G.pth.
+# 1. batch 128
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 150 --ema 0.999 --batch_size 128 --seed 0 --out_dir runs/e11_e8_ema_bs128
+# 2. batch 256
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 150 --ema 0.999 --batch_size 256 --seed 0 --out_dir runs/e11_e8_ema_bs256
+# 3. 300 epochs with linear learning-rate decay to 0
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 300 --ema 0.999 --lr_decay --seed 0 --out_dir runs/e11_e8_ema_decay300
+# 4. two D steps per G step
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 150 --ema 0.999 --n_critic 2 --seed 0 --out_dir runs/e11_e8_ema_ncritic2
+# 5. bet: conv D + spectral norm + hinge + EMA + decay, batch 128, 300 epochs
+python train.py --loss hinge --d_arch conv --sn --beta1 0.5 --lr 2e-4 --lr_d 2e-4 --epochs 300 --ema 0.999 --lr_decay --batch_size 128 --seed 0 --out_dir runs/e11_bet_convsn_hinge
+# 6. bet: MLP D + spectral norm + hinge + EMA + decay, batch 128, 300 epochs
+python train.py --loss hinge --sn --beta1 0.5 --lr 2e-4 --lr_d 2e-4 --epochs 300 --ema 0.999 --lr_decay --batch_size 128 --seed 0 --out_dir runs/e11_bet_mlpsn_hinge

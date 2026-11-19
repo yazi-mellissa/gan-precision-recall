@@ -1,0 +1,3 @@
+# E15: final recipe for 1000 epochs, seed 0 (500 epochs gave 6.22; gains were shrinking: -0.6 then -0.34 per 100 epochs).
+# About 5 h: launch with TIME=07:00:00. Snapshots 600-900 extend E14's curve; ema_ep500 must reproduce E14 (6.22).
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 1000 --ema 0.999 --seed 0 --snapshots 500 600 700 800 900 --out_dir runs/e15_bce_mlpsn_ema_1000ep_seed0

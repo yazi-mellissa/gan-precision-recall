@@ -1,0 +1,14 @@
+# Final recipe (kept): spectral-norm MLP D, BCE, two learning rates, EMA 0.999 of G. Submit <run>/ema/G.pth.
+# Same out_dir names as the original runs (E10 #2, E12, E13, E14).
+# 150 epochs, seeds 0-2: FID 8.46 / 9.32 / 8.78
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 150 --ema 0.999 --seed 0 --out_dir runs/e10_bce_mlpsn_ema
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 150 --ema 0.999 --seed 1 --out_dir runs/e12_bce_mlpsn_ema_seed1
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 150 --ema 0.999 --seed 2 --out_dir runs/e12_bce_mlpsn_ema_seed2
+# 300 epochs, seeds 0-2: FID 7.16 / 7.30 / 6.63
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 300 --ema 0.999 --seed 0 --out_dir runs/e12_bce_mlpsn_ema_300ep_seed0
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 300 --ema 0.999 --seed 1 --out_dir runs/e13_bce_mlpsn_ema_300ep_seed1
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 300 --ema 0.999 --seed 2 --out_dir runs/e13_bce_mlpsn_ema_300ep_seed2
+# 500 epochs, seed 0: FID 6.22
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 500 --ema 0.999 --seed 0 --out_dir runs/e14_bce_mlpsn_ema_500ep_seed0
+# 1000 epochs, seed 0: FID 5.62 (levels off after ~800 epochs). This is the submitted checkpoints/G.pth
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 1000 --ema 0.999 --seed 0 --out_dir runs/e15_bce_mlpsn_ema_1000ep_seed0

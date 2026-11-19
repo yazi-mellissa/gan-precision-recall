@@ -1,0 +1,7 @@
+# E4: PR-divergence from scratch (chi-squared critic), lambda screen, seed 0
+python train.py --loss prdiv --beta1 0.5 --epochs 100 --lam 0.1 --seed 0 --out_dir runs/e4_prdiv_lam0.1_seed0
+python train.py --loss prdiv --beta1 0.5 --epochs 100 --lam 0.2 --seed 0 --out_dir runs/e4_prdiv_lam0.2_seed0
+python train.py --loss prdiv --beta1 0.5 --epochs 100 --lam 0.5 --seed 0 --out_dir runs/e4_prdiv_lam0.5_seed0
+python train.py --loss prdiv --beta1 0.5 --epochs 100 --lam 1.0 --seed 0 --out_dir runs/e4_prdiv_lam1.0_seed0
+python train.py --loss prdiv --beta1 0.5 --epochs 100 --lam 2.0 --seed 0 --out_dir runs/e4_prdiv_lam2.0_seed0
+python train.py --loss prdiv --beta1 0.5 --epochs 100 --lam 5.0 --seed 0 --out_dir runs/e4_prdiv_lam5.0_seed0

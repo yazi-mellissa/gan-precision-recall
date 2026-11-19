@@ -1,0 +1,4 @@
+# E6: PR-divergence fine-tune from E2 (D warmed up 1 epoch on the chi-squared loss, then 30 epochs)
+python train.py --loss prdiv --beta1 0.5 --epochs 30 --lam 0.5 --seed 0 --init_from runs/e2_baseline_seed0 --d_warmup_epochs 1 --out_dir runs/e6_finetune_lam0.5_seed0
+python train.py --loss prdiv --beta1 0.5 --epochs 30 --lam 0.5 --seed 1 --init_from runs/e2_baseline_seed1 --d_warmup_epochs 1 --out_dir runs/e6_finetune_lam0.5_seed1
+python train.py --loss prdiv --beta1 0.5 --epochs 30 --lam 0.5 --seed 2 --init_from runs/e2_baseline_seed2 --d_warmup_epochs 1 --out_dir runs/e6_finetune_lam0.5_seed2

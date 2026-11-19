@@ -1,0 +1,16 @@
+# E10: screen of training-discriminator levers, seed 0, generator architecture unchanged.
+# Base = E8 (bce, beta1 0.5, lr_G 2e-4, lr_D 1e-4, R1 10, 150 epochs). Each run saves G.pth and ema/G.pth.
+# 1. E8 + EMA of G only (isolates EMA)
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 150 --ema 0.999 --seed 0 --out_dir runs/e10_e8_ema
+# 2. spectral norm on the MLP D instead of R1
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 150 --ema 0.999 --seed 0 --out_dir runs/e10_bce_mlpsn_ema
+# 3. hinge loss with spectral-norm MLP D
+python train.py --loss hinge --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 150 --ema 0.999 --seed 0 --out_dir runs/e10_hinge_mlpsn_ema
+# 4. conv D with spectral norm, BCE
+python train.py --loss bce --d_arch conv --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 150 --ema 0.999 --seed 0 --out_dir runs/e10_bce_convsn_ema
+# 5. conv D with spectral norm, hinge
+python train.py --loss hinge --d_arch conv --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 150 --ema 0.999 --seed 0 --out_dir runs/e10_hinge_convsn_ema
+# 6. conv D with R1 (E8's regulariser on a conv D)
+python train.py --loss bce --d_arch conv --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 150 --ema 0.999 --seed 0 --out_dir runs/e10_bce_conv_r1_ema
+# 7. E8 + EMA, twice as long
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 300 --ema 0.999 --seed 0 --out_dir runs/e10_e8_ema_300ep

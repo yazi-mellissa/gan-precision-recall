@@ -1,0 +1,3 @@
+# E14: final recipe for 500 epochs, seed 0 (300 epochs gave 7.16 vs 8.46 at 150). About 140 min: launch with TIME=03:30:00.
+# EMA snapshots at 100-400 epochs give the FID vs training-length curve; ema_ep300 must reproduce E12 #5 (7.16).
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 500 --ema 0.999 --seed 0 --snapshots 100 150 200 300 400 --out_dir runs/e14_bce_mlpsn_ema_500ep_seed0

@@ -1,0 +1,4 @@
+# E7: PR-divergence fine-tune from E2 with the ratio read from the BCE discriminator (r = exp(logit)), lambda 0.5
+python train.py --loss bce_prdiv --beta1 0.5 --epochs 30 --lam 0.5 --seed 0 --init_from runs/e2_baseline_seed0 --out_dir runs/e7_bce_prdiv_lam0.5_seed0
+python train.py --loss bce_prdiv --beta1 0.5 --epochs 30 --lam 0.5 --seed 1 --init_from runs/e2_baseline_seed1 --out_dir runs/e7_bce_prdiv_lam0.5_seed1
+python train.py --loss bce_prdiv --beta1 0.5 --epochs 30 --lam 0.5 --seed 2 --init_from runs/e2_baseline_seed2 --out_dir runs/e7_bce_prdiv_lam0.5_seed2

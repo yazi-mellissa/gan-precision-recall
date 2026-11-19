@@ -1,0 +1,25 @@
+# data and generated artefacts, not redistributed
+data/
+dataset/
+samples/
+runs/
+results/cache/
+eval/cache/
+*.npy
+*.npz
+!movie_names.npz
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ruff_cache/
+.ipynb_checkpoints/
+uv.lock
+
+# os / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

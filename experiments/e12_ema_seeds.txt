@@ -1,0 +1,11 @@
+# E12: the two E10 winners on 3 training seeds (seed 0 already exists), plus two EMA variants. Ship ema/G.pth.
+# 1-2. spectral-norm MLP D + BCE + EMA (E10 #2: ema FID 8.46), seeds 1 and 2
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 150 --ema 0.999 --seed 1 --out_dir runs/e12_bce_mlpsn_ema_seed1
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 150 --ema 0.999 --seed 2 --out_dir runs/e12_bce_mlpsn_ema_seed2
+# 3-4. E8 + EMA, 300 epochs (E10 #7: ema FID 9.97, best recall), seeds 1 and 2
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 300 --ema 0.999 --seed 1 --out_dir runs/e12_e8_ema_300ep_seed1
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 300 --ema 0.999 --seed 2 --out_dir runs/e12_e8_ema_300ep_seed2
+# 5. spectral-norm MLP D + EMA, 300 epochs (do the two winners add up?)
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 300 --ema 0.999 --seed 0 --out_dir runs/e12_bce_mlpsn_ema_300ep_seed0
+# 6. spectral-norm MLP D, stronger averaging (EMA 0.9999)
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 150 --ema 0.9999 --seed 0 --out_dir runs/e12_bce_mlpsn_ema9999_seed0

@@ -1,0 +1,7 @@
+# E8 seeds 1 and 2 (same settings as runs/e8_r1_ttur_150ep_seed0), so E8 has 3 seeds
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 150 --seed 1 --out_dir runs/e8_r1_ttur_150ep_seed1
+python train.py --loss bce --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --r1_gamma 10 --epochs 150 --seed 2 --out_dir runs/e8_r1_ttur_150ep_seed2
+# E9: PR-divergence fine-tune from E8 seed 0, chi2 critic with R1 and a clamp on T (lambda < 1 pushes recall)
+python train.py --loss prdiv --lam 0.5 --init_from runs/e8_r1_ttur_150ep_seed0 --d_warmup_epochs 2 --r1_gamma 10 --t_clip 20 --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 30 --seed 0 --out_dir runs/e9_prdiv_ft_lam0.5_seed0
+python train.py --loss prdiv --lam 0.2 --init_from runs/e8_r1_ttur_150ep_seed0 --d_warmup_epochs 2 --r1_gamma 10 --t_clip 20 --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 30 --seed 0 --out_dir runs/e9_prdiv_ft_lam0.2_seed0
+python train.py --loss prdiv --lam 2.0 --init_from runs/e8_r1_ttur_150ep_seed0 --d_warmup_epochs 2 --r1_gamma 10 --t_clip 20 --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 30 --seed 0 --out_dir runs/e9_prdiv_ft_lam2.0_seed0

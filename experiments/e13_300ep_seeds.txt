@@ -1,0 +1,3 @@
+# E13: final recipe for 300 epochs (E12 #5 gave 7.16 on seed 0 vs 8.46 at 150 epochs), seeds 1 and 2. About 85 min each.
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 300 --ema 0.999 --seed 1 --out_dir runs/e13_bce_mlpsn_ema_300ep_seed1
+python train.py --loss bce --sn --beta1 0.5 --lr 2e-4 --lr_d 1e-4 --epochs 300 --ema 0.999 --seed 2 --out_dir runs/e13_bce_mlpsn_ema_300ep_seed2

@@ -1,0 +1,4 @@
+# E1: starter GAN (Adam beta1 0.9), 3 seeds
+python train.py --loss bce --beta1 0.9 --epochs 100 --seed 0 --out_dir runs/e1_vanilla_seed0
+python train.py --loss bce --beta1 0.9 --epochs 100 --seed 1 --out_dir runs/e1_vanilla_seed1
+python train.py --loss bce --beta1 0.9 --epochs 100 --seed 2 --out_dir runs/e1_vanilla_seed2
